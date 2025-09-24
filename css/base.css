@@ -32,7 +32,7 @@
 		display: none !important;
 	}
 	#main-window[sizemode="fullscreen"] .titlebar-restore {
-		list-style-image: url(../img/titlebox-full-restore.png) !important;
+		list-style-image: url(../img/titlebox-full-restore.webp) !important;
 
 		.toolbarbutton-icon {
 			width: auto !important;
