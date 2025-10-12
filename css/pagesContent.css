@@ -741,7 +741,22 @@
 	}
 	moz-message-bar {
 		background-clip: padding-box !important;
-		background: var(--uwp-infobar-background) !important;
+		background-color: var(--uwp-infobar-background) !important;
+		border: var(--uwp-infobar-border) !important;
+		border-radius: var(--uwp-tags-control-radius) !important;
+	}
+	moz-promo {
+		--promo-message-text-color: var(--uwp-foreground) !important;
+		--promo-border: var(--uwp-infobar-border) !important;
+		--promo-border-radius: var(--uwp-tags-control-radius) !important;
+		--promo-background-color: var(--uwp-infobar-background) !important;
+	}
+	div.container:has(> div.text-container > p.message) {
+		background-clip: padding-box !important;
+	}
+	moz-box-item {
+		background-clip: padding-box !important;
+		background-color: var(--uwp-infobar-background) !important;
 		border: var(--uwp-infobar-border) !important;
 		border-radius: var(--uwp-tags-control-radius) !important;
 	}
@@ -783,6 +798,64 @@
 	}
 	.translations-manage-language {
 		border: none !important;
+	}
+	moz-box-link {
+		border: none !important;
+		border-radius: 0px !important;
+	}
+	a.button, button.button:has(> img.nav-icon) {
+		color: var(--uwp-expander-color) !important;
+		background-color: var(--uwp-expander-background) !important;
+		background-clip: padding-box !important;
+		border: var(--uwp-expander-border) !important;
+		border-radius: var(--uwp-tags-control-radius) !important;
+		transition: var(--uwp-button-transition) !important;
+		cursor: default !important;
+		padding: var(--uwp-expander-hor-padding) !important;
+		box-sizing: content-box !important;
+		width: calc(100% - 2px - var(--uwp-expander-hor-padding) * 2) !important;
+
+		&:hover {
+			color: var(--uwp-expander-color-hover) !important;
+			background-color: var(--uwp-expander-background-hover) !important;
+			border: var(--uwp-expander-border-hover) !important;
+		}
+
+		&:hover:active {
+			color: var(--uwp-expander-color-active) !important;
+			background-color: var(--uwp-expander-background-active) !important;
+			border: var(--uwp-expander-border-active) !important;
+		}
+
+		& > img.nav-icon {
+			margin-top: 1px !important;
+		}
+	}
+	moz-box-button {
+		border: none !important;
+		border-radius: 0px !important;
+	}
+	button.button > div.text-content.has-description {
+		gap: 0px !important;
+	}
+	span.description.text-deemphasized {
+		font-size: 12px !important;
+		color: var(--uwp-text-fill-secondary) !important;
+	}
+	groupbox {
+		& > label {
+			padding: 0px 2px !important;
+			margin: 0px 0px 8px 0px !important;
+
+			& > h2 {
+				font-size: 14px !important;
+				font-weight: bold !important;
+				margin: 0px !important;
+			}
+		}
+	}
+	hbox.subcategory > h1 {
+		font-weight: bold !important;
 	}
 }
 

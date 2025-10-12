@@ -842,7 +842,7 @@
 	/* Message-bar */
 	message-bar, .content-blocking-warning {
 		background-clip: padding-box !important;
-		background: var(--uwp-infobar-background) !important;
+		background-color: var(--uwp-infobar-background) !important;
 		border: var(--uwp-infobar-border) !important;
 		border-radius: var(--uwp-tags-control-radius) !important;
 	}
