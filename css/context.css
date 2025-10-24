@@ -59,7 +59,7 @@
 	.context-menu > ul > li {
 		width: calc(100% - var(--uwp-context-item-margin-width)) !important;
 	}
-	menupopup menuseparator, panel-item-separator, hr[role="separator"], panel-list hr:not([hidden]), .context-menu > ul > li.separator {
+	menupopup menuseparator, panel-item-separator, toolbarseparator, hr[role="separator"], panel-list hr:not([hidden]), .context-menu > ul > li.separator {
 		-moz-appearance: none !important;
 		border: none !important;
 		padding: .5px 0px .5px 0px !important;
@@ -67,8 +67,11 @@
 		height: 0px !important;
 		background-color: var(--uwp-context-separator) !important;
 	}
-	menuseparator::before {
+	menuseparator::before, toolbarseparator:before {
 		display: none !important;
+	}
+	toolbarseparator.proton-zap {
+		background-image: var(--panel-separator-zap-gradient, none) !important;
 	}
 	.context-menu > ul > li.separator {
 		width: auto !important;
