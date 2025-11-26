@@ -43,8 +43,10 @@
 	.header-container, .footer-container {
 		border: none !important;
 	}
+	.dialogOverlay[hideContent="true"][topmost="true"] {
+		background: var(--uwp-dialog-smoke) !important;
+	}
 	.dialogBox {
-		margin-top: 0px !important;
 		background-color: var(--uwp-dialog-background) !important;
 		background-clip: padding-box !important;
 		color: var(--uwp-global-front) !important;

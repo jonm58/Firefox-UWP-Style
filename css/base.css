@@ -101,6 +101,9 @@
 		min-height: 0px !important;
 	}
 }
+.tab-close-button {
+	border-radius: var(--uwp-tags-control-radius) !important;
+}
 .tabbrowser-tab {
 	padding: 0px !important;
 }
@@ -428,6 +431,17 @@ toolbar .toolbarbutton-1 {
 	}
 }
 */
+.browserContainer {
+	outline: none !important;
+	box-shadow: none !important;
+	background: transparent !important;
+	@media -moz-pref("sidebar.revamp") {
+		& {
+			outline: none !important;
+			box-shadow: none !important;
+		}
+	}
+}
 #tracking-protection-icon-container, #identity-box {
 	border: none !important;
 }
@@ -964,20 +978,20 @@ body[lwt-sidebar] {
 	border: none !important;
 }
 /* Status Panel */
-#statuspanel-label {
+#statuspanel-label, split-view-footer {
 	background-color: var(--uwp-statuspanel) !important;
 	background-clip: padding-box !important;
 	color: var(--uwp-global-front) !important;
 	border: none !important;
-	padding: 4px !important;
+	padding: 6px !important;
 	box-shadow: -10px 10px 10px 14px rgba(0, 0, 0, .5) !important;
 	clip-path: inset(-20px -20px 0px 0px) !important;
 }
 @media -moz-pref("uwp.sun-valley") {
-	#statuspanel-label {
+	#statuspanel-label, split-view-footer {
 		border: 1px solid var(--uwp-surface-stroke-flyout) !important;
 		border-radius: var(--uwp-tags-overlay-radius) !important;
-		margin: 0px 0px 2px 2px !important;
+		margin: 2px !important;
 		box-shadow: var(--uwp-shadow-popup) !important;
 		clip-path: unset !important;
 	}
@@ -1214,48 +1228,103 @@ sidebar-tab-row {
 	background: transparent !important;
 }
 
-#main-window:not([inDOMFullscreen]) #tabbrowser-tabbox[sidebar-shown] {
+#main-window:not([inDOMFullscreen]) #tabbrowser-tabbox[sidebar-shown]:has(> #tabbrowser-tabpanels:not([splitview])) {
 	border-top-left-radius: var(--uwp-tags-overlay-radius) !important;
 	background-color: var(--uwp-nav-content-background) !important;
 	background-clip: padding-box !important;
 	border: var(--uwp-nav-content-border) !important;
 	border-right-width: 0px !important;
 	border-bottom-width: 0px !important;
-	overflow: hidden;
+	overflow: clip !important;
 	outline: none !important;
 	box-shadow: none !important;
 }
-
 
 #vertical-tabs {
 	margin-inline-end: 0px !important;
 	min-width: 48px !important;
 }
-#tabbrowser-tabs[orient="vertical"] {
-	gap: 0px !important;
-	& #tabs-newtab-button, & #vertical-tabs-newtab-button {
-		min-height: 36px !important;
-		margin-top: 2px !important;
-		width: 100% !important;
-		padding-left: 15px !important;
-		padding-right: 15px !important;
-	}
-	& .tabbrowser-tab {
-		min-height: 36px !important;
-		margin: 2px 0px !important;
-		& > .tab-stack > .tab-content {
-			padding-left: 17px !important;
-			padding-right: 9px !important;
-			--tab-close-button-padding: 5px !important;
+
+#tabbrowser-tabs {
+	&[orient="vertical"] {
+		gap: 0px !important;
+		& #tabs-newtab-button, & #vertical-tabs-newtab-button {
+			min-height: 36px !important;
+			margin-top: 2px !important;
+			width: 100% !important;
+			padding-left: 15px !important;
+			padding-right: 15px !important;
 		}
-		&:not([expanded]) {
-			& .tab-background {
-				width: auto !important;
+		& .tabbrowser-tab {
+			min-height: 36px !important;
+			margin: 2px 0px !important;
+			& > .tab-stack > .tab-content {
+				padding-left: 17px !important;
+				padding-right: 9px !important;
+				--tab-close-button-padding: 5px !important;
+			}
+			&:not([expanded]) {
+				& .tab-background {
+					width: auto !important;
+				}
+			}
+		}
+		&::after {
+			display: none !important;
+		}
+	}
+	& tab-split-view-wrapper {
+		border: none !important;
+		border-radius: 0px !important;
+		background-color: transparent !important;
+		outline: none !important;
+		outline-offset: 0px !important;
+		margin-inline: 0px !important;
+		padding: 0px !important;
+		gap: 2px !important;
+		&:not([hasactivetab]) {
+			& .tabbrowser-tab {
+				&:last-child {
+					border-inline-start: none !important;
+				}
 			}
 		}
 	}
-	&::after {
-		display: none !important;
+}
+
+#tabbrowser-tabpanels {
+	&[splitview] {
+		& .split-view-splitter {
+			margin: 0px !important;
+			background: transparent !important;
+			border: none !important;
+			width: 8px !important;
+		}
+		& .split-view-panel {
+			margin: 8px !important;
+			background-color: var(--uwp-nav-content-background) !important;
+			background-clip: padding-box !important;
+			border: var(--uwp-nav-content-border) !important;
+			border-radius: var(--uwp-tags-overlay-radius) !important;
+			box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, .16) !important;
+			overflow: clip !important;
+			&:is(.deck-selected) {
+				border-color: color-mix(in srgb, AccentColor 50%, transparent) !important;
+				&:-moz-window-inactive {
+					border-color: rgb(72, 72, 72) !important;
+				}
+			}
+		}
+		& .browserStack {
+			border-radius: 0 !important;
+			outline: none !important;
+		}
+		& .split-view-panel[column="0"] {
+			margin-right: 0px !important;
+		}
+		& .split-view-panel[column="1"] {
+			margin-left: 0px !important;
+		}
 	}
 }
 

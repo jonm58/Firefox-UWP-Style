@@ -146,32 +146,47 @@
 	named-deck-button + named-deck-button {
 		margin-left: 24px !important;
 	}
-	button[role="tab"] {
+	.tab-group {
+		border: none !important;
+		margin-inline: 0px !important;
+		display: flex !important;
+		gap: 20px !important;
+		margin-top: 10px !important;
+	}
+	.tab-button[role="tab"] {
 		background-color: transparent !important;
 		color: var(--uwp-tags-pivot) !important;
 		border: none !important;
-		border-bottom: 2px solid transparent !important;
-		font-size: 20px !important;
-		padding-bottom: 8px !important;
-	}
-	button[role="tab"][aria-selected="true"] {
-		color: var(--uwp-tags-pivot-selected) !important;
-		border-bottom: 2px solid AccentColor !important;
-		padding-bottom: 8px !important;
-		border-radius: 0px !important;
-	}
-	button[role="tab"]:hover {
-		color: var(--uwp-tags-pivot-hover) !important;
-	}
-	button[role="tab"]:hover:active {
-		background-color: transparent !important;
-		border-top-width: 0px !important;
-		border-left-width: 0px !important;
-		border-right-width: 0px !important;
-	}
-	button[role="tab"][aria-selected="false"]:hover:active {
-		background-color: transparent !important;
-		border-color: transparent !important;
+		font-size: 24px !important;
+		font-weight: 350 !important;
+		padding: 0px !important;
+		min-width: initial !important;
+		&::after {
+			content: '';
+			display: block !important;
+			margin-top: 9px !important;
+			width: 100% !important;
+			height: 3px !important;
+			border-radius: 3px !important;
+		}
+		&[aria-selected="true"] {
+			color: var(--uwp-tags-pivot-selected) !important;
+			&::after {
+				background-color: light-dark(color-mix(in srgb, AccentColor 90%, black), color-mix(in srgb, AccentColor 60%, white)) !important;
+			}
+		}
+		&:hover {
+			color: var(--uwp-tags-pivot-hover) !important;
+			border: none !important;
+			&:active {
+				background-color: transparent !important;
+				border: none !important;
+			}
+		}
+		&[aria-selected="false"]:hover:active {
+			background-color: transparent !important;
+			border: none !important;
+		}
 	}
 	button .button-background {
 		background: none !important;

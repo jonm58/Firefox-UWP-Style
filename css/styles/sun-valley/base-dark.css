@@ -2,7 +2,7 @@
 @media -moz-pref("uwp.sun-valley") {
 @media (prefers-color-scheme: dark) {
 :root {
-	--uwp-mainwindow: #151515;
+	--uwp-mainwindow: var(--uwp-background-fill-base);
 	--uwp-tabbar-tab-hover: var(--uwp-background-fill-base);
 	--uwp-tabbar-button-hover: var(--uwp-background-fill-base);
 	--uwp-tabbar-button-hover-active: #444;

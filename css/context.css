@@ -195,7 +195,9 @@
 	}
 	menulist, menulist[disabled="true"], select {
 		-moz-appearance: none !important;
-		padding: 4px 6px 4px 6px !important;
+		padding-block: 0px !important;
+		padding-inline: 0px !important;
+		padding: 4px 11px 4px 11px !important;
 		color: var(--uwp-combo-color) !important;
 		background-color: var(--uwp-combo-background) !important;
 		border: var(--uwp-combo-border) !important;
@@ -204,6 +206,8 @@
 		height: auto !important;
 		min-height: 32px !important;
 		box-shadow: none !important;
+		font-size: inherit !important;
+		font-weight: inherit !important;
 		@media -moz-pref("uwp.sun-valley") {
 			@media (prefers-color-scheme: dark) {
 				& {
@@ -239,6 +243,11 @@
 			}
 		}
 	}
+	.select-wrapper {
+		border: none !important;
+		border-radius: 0px !important;
+		background: transparent !important;
+	}
 	menulist[open="true"] {
 		color: var(--uwp-combo-color-active) !important;
 		background-color: var(--uwp-combo-background-active) !important;
@@ -246,6 +255,14 @@
 	}
 	#label-box:not([native]) {
 		font-weight: normal !important;
+	}
+	#label-box {
+		& label {
+			margin: 0px !important;
+		}
+	}
+	dropmarker[type="menu"] {
+		margin-left: 10px !important;
 	}
 	select {
 		line-height: normal !important;
