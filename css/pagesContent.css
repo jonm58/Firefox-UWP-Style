@@ -588,6 +588,9 @@
 		background: transparent !important;
 		border: none !important;
 		border-radius: 0px !important;
+		& > tr.odd:not(:hover, :active) {
+			background-color: transparent !important;
+		}
 	}
 }
 

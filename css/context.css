@@ -49,6 +49,18 @@
 		box-shadow: var(--uwp-shadow-context) !important;
 		margin: 0px !important;
 	}
+	panel-item {
+		background: transparent !important;
+		border: none !important;
+		border-radius: 0px !important;
+		color: inherit !important;
+	}
+	.select-option-icon {
+		inset-inline-start: 11px !important;
+	}
+	button.panel-trigger {
+		padding-left: 33px !important;
+	}
 	.scrollbox-clip * {
 		scrollbar-width: var(--uwp-context-scrollbar-width) !important;
 		scrollbar-color: var(--uwp-scrollbar-thumb) transparent !important;
@@ -90,6 +102,7 @@
 		border: none !important;
 		font-size: 12px !important;
 		margin: var(--uwp-context-item-margin) !important;
+		transition: none !important;
 		&:focus-visible {
 			outline: 2px solid var(--uwp-focus-stroke-outer) !important;
 			box-shadow: 0px 0px 0px 1px var(--uwp-focus-stroke-inner) !important;

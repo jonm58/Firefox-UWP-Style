@@ -1094,6 +1094,10 @@ notification {
 #ctrlTab-panel {
 	--panel-background: transparent !important;
 }
+.tab-preview-thumbnail-container {
+	border: none !important;
+	border-radius: var(--uwp-tags-control-radius) !important;
+}
 .container.infobar {
 	background: transparent !important;
 	border: none !important;
